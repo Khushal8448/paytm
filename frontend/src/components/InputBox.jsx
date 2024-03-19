@@ -6,7 +6,7 @@ function InputBox({ placeholder, label }) {
       </div>
       <input
         type="text"
-        className="w-full rounded-md border border-slate-200 bg-slate-50 px-2 py-1 text-xl font-medium text-slate-700"
+        className="w-full rounded-md border border-slate-200 bg-slate-50 px-2 py-1 text-xl font-normal text-slate-700"
         name={label}
         id={label}
         placeholder={placeholder}

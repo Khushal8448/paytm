@@ -7,7 +7,7 @@ import SubHeading from "../components/SubHeading";
 const Signup = () => {
   return (
     <div className="flex h-screen items-center justify-center bg-slate-300">
-      <div className="flex flex-col justify-center rounded-lg  bg-white p-3 text-center">
+      <div className="flex w-96 flex-col justify-center rounded-lg  bg-white p-3 text-center">
         <Heading label={"Sign Up"} />
         <SubHeading label={"Enter your information to create an account"} />
         <InputBox placeholder="Khushal" label="First Name" />
