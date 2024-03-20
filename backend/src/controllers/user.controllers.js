@@ -2,6 +2,7 @@ const z = require("zod");
 const jwt = require("jsonwebtoken");
 const User = require("../models/user.models.js");
 const Account = require("../models/account.models.js");
+const mongoose = require("mongoose");
 
 const signupBody = z.object({
   username: z.string().email(),
@@ -140,7 +141,6 @@ const updateUser = async (req, res, next) => {
 const getFilteredUsers = async (req, res, next) => {
   const filter = req.query.filter || "";
   console.log(filter);
-  // const newFilter = filter.toLowarCase();
 
   const users = await User.find({
     $or: [
@@ -157,13 +157,17 @@ const getFilteredUsers = async (req, res, next) => {
     ],
   });
 
+  const userId = new mongoose.Types.ObjectId(req.userId);
+
   return res.status(200).json({
-    users: users.map((user) => ({
-      username: user.username,
-      _id: user._id,
-      firstName: user.firstName,
-      lastName: user.lastName,
-    })),
+    users: users
+      .filter((user) => !user._id.equals(userId))
+      .map((user) => ({
+        username: user.username,
+        _id: user._id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+      })),
   });
 };
 
