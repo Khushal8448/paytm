@@ -1,8 +1,8 @@
-function InputBox({ placeholder, label }) {
+function InputBox({ placeholder, label, Rs }) {
   return (
     <div>
       <div className="py-2 text-left text-sm font-medium" htmlFor={label}>
-        {label}
+        {label} {Rs ? "in (Rs)" : ""}
       </div>
       <input
         type="text"
