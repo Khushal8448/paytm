@@ -10,6 +10,7 @@ const getBalance = async (req, res) => {
 };
 
 const transferMoney = async (req, res) => {
+  console.log(req.body);
   try {
     const session = await mongoose.startSession();
 

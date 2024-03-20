@@ -4,6 +4,7 @@ const authMiddleware = (req, res, next) => {
   const authHeader = req.headers.authorization;
   // console.log(req.headers);
 
+  console.log(req.body);
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
     return res.status(403).json("You are not verified");
   }

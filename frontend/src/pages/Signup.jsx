@@ -18,17 +18,18 @@ const Signup = () => {
   console.log(firstName);
 
   const handleSubmit = async () => {
-    const res = await axios.post("http://localhost:3000/api/v1/user/signup", {
-      firstName,
-      lastName,
-      username,
-      password,
-    });
-    console.log(res);
-    // if (res.statusText === "OK") {
-    //   navigate("/signin");
-    // }
-    localStorage.setItem("token", res.data.token);
+    try {
+      const res = await axios.post("http://localhost:3001/api/v1/user/signup", {
+        firstName,
+        lastName,
+        username,
+        password,
+      });
+      localStorage.setItem("token", res.data.token);
+      navigate("/dashboard");
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (

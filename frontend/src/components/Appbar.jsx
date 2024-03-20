@@ -1,6 +1,6 @@
 function Appbar() {
   return (
-    <div className="flex items-center justify-between border p-3">
+    <div className="m-auto flex max-w-[900px] items-center justify-between border-b-2 p-3">
       <h1 className="cursor-pointer text-xl font-bold uppercase tracking-wider">
         PayTm App
       </h1>

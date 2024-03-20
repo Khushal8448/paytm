@@ -6,7 +6,7 @@ const BalanceComponent = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/v1/account/balance", {
+      .get("http://localhost:3001/api/v1/account/balance", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
