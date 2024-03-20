@@ -139,6 +139,8 @@ const updateUser = async (req, res, next) => {
 
 const getFilteredUsers = async (req, res, next) => {
   const filter = req.query.filter || "";
+  console.log(filter);
+  // const newFilter = filter.toLowarCase();
 
   const users = await User.find({
     $or: [

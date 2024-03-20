@@ -1,173 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Users = () => {
-  const [users, setUsers] = useState([
-    {
-      firstName: "Khushal",
-      lastName: "Mali",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Krati",
-      lastName: "Saini",
-      _id: 1,
-    },
-    {
-      firstName: "Monika",
-      lastName: "Rani",
-      _id: 1,
-    },
-  ]);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/api/v1/user/bulk", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
+      .then((res) => setUsers(res.data.users));
+  }, []);
 
   return (
     <div>

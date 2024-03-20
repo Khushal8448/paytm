@@ -9,11 +9,7 @@ const app = express();
 // 1) MIDDLEWARES
 
 app.use(morgan("dev"));
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 
